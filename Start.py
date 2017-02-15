@@ -5,10 +5,10 @@ from telebot import types
 import os
 import subprocess
 
-TOKEN = '372274699:AAH8t7ML7zdXoCSxiJOqPSSFmTILQ68zflY'
+TOKEN = '<TOKEN>'
 bot = telebot.TeleBot(TOKEN)
 
-chat_id = "-184142656"
+chat_id = "<ChatID>"
 
 def listener(mensajes): 
 	for m in mensajes: 
