@@ -20,8 +20,6 @@ def listener(mensajes):
 bot.set_update_listener(listener)
 
 commands = {  # Diccionario para la ayuda comando help
-              'hola': '',
-              'adios': '',
               'ip': 'Devuelve la direccion IP publica del servidor.',
               'chatid': 'Devuelve el ID del chat, COMINGSOON.',
 	      'estado': 'Devuelve un archivo HTML con el estado del servidor.',
@@ -32,23 +30,15 @@ commands = {  # Diccionario para la ayuda comando help
 # Ayuda
 @bot.message_handler(commands=['help'])
 def command_help(mensaje):
-    help_text = "Que quieres perra?: \n \n"
+    help_text = "En que te puedo ayudar?: \n \n"
     for key in commands:  # Bucle que extrae los datos del diccionario commands
         help_text += "/" + key + ": "
         help_text += commands[key] + "\n"
     bot.send_message(chat_id, help_text) 
 
 @bot.message_handler(commands=['chatid'])
-def comando_hola(mensaje):
-    bot.send_message(chat_id, 'Hola zorra')
-
-@bot.message_handler(commands=['hola'])
-def comando_hola(mensaje): 
-    bot.send_message(chat_id, 'Hola zorra') 
-
-@bot.message_handler(commands=['adios'])
-def adios(mensaje):
-    bot.send_message(chat_id, 'Drupal no se va a hacer solo cacho mierda')
+def chatid(mensaje):
+    bot.send_message(chat_id, '')
 
 @bot.message_handler(commands=['ip'])
 def ip(mensaje):
@@ -63,7 +53,7 @@ def ip(mensaje):
     bot.send_message(chat_id, string)
 
 @bot.message_handler(commands=['estado'])
-def screenshot(mensaje):
+def estado(mensaje):
     os.system("echo q | htop | aha --black --line-fix > Estado.html")
     doc = open('Estado.html', 'rb')
     os.system("rm Estado.html")
